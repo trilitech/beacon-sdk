@@ -1,5 +1,6 @@
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { Optional, omittedProperties } from '../optional'
 
 export interface TezosSmartRollupTimeoutOperation extends TezosBaseOperation {
   kind: TezosOperationType.SMART_ROLLUP_TIMEOUT
@@ -11,6 +12,12 @@ export interface TezosSmartRollupTimeoutOperation extends TezosBaseOperation {
   rollup: string
   stakers: SmartRollupTimeoutStakers
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosSmartRollupTimeoutOperation = Optional<TezosSmartRollupTimeoutOperation, omittedProperties>
 
 export interface SmartRollupTimeoutStakers {
   alice: string

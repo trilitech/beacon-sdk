@@ -1,5 +1,6 @@
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { Optional, omittedProperties } from '../optional'
 
 /**
  * @internalapi
@@ -16,3 +17,9 @@ export interface TezosOriginationOperation extends TezosBaseOperation {
   delegate?: string
   script: string
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosOriginationOperation = Optional<TezosOriginationOperation, omittedProperties>

@@ -1,4 +1,5 @@
 import { TezosOperationType } from '../TezosOperationType'
+import { Optional, omittedProperties } from '../optional'
 
 export interface TezosDalPublishCommitmentOperation {
   kind: TezosOperationType.DAL_PUBLISH_COMMITMENT
@@ -13,3 +14,9 @@ export interface TezosDalPublishCommitmentOperation {
     commitment_proof: string
   }
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosDalPublishCommitmentOperation = Optional<TezosDalPublishCommitmentOperation, omittedProperties>

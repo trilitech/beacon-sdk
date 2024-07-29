@@ -1,6 +1,7 @@
-import { MichelineMichelsonV1Expression } from '../MichelineMichelsonV1Expression'
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { Optional, omittedProperties } from '../optional'
+import { MichelineMichelsonV1Expression } from '../MichelineMichelsonV1Expression'
 
 export interface TezosTransferTicketOperation extends TezosBaseOperation {
   kind: TezosOperationType.TRANSFER_TICKET
@@ -16,3 +17,9 @@ export interface TezosTransferTicketOperation extends TezosBaseOperation {
   destination: string
   entrypoint: string
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosTransferTicketOperation = Optional<TezosTransferTicketOperation, omittedProperties>

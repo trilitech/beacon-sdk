@@ -1,5 +1,6 @@
 import { TezosBaseOperation } from '../TezosBaseOperation'
 import { TezosOperationType } from '../TezosOperationType'
+import { Optional, omittedProperties } from '../optional'
 import { TezosTransactionParameters } from '../TezosTransactionParameters'
 
 /**
@@ -17,3 +18,9 @@ export interface TezosTransactionOperation extends TezosBaseOperation {
   destination: string
   parameters?: TezosTransactionParameters
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosTransactionOperation = Optional<TezosTransactionOperation, omittedProperties>

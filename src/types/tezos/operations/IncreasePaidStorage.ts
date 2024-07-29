@@ -1,5 +1,6 @@
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { Optional, omittedProperties } from '../optional'
 
 export interface TezosIncreasePaidStorageOperation extends TezosBaseOperation {
   kind: TezosOperationType.INCREASE_PAID_STORAGE
@@ -11,3 +12,9 @@ export interface TezosIncreasePaidStorageOperation extends TezosBaseOperation {
   amount: string
   destination: string
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosIncreasePaidStorageOperation = Optional<TezosIncreasePaidStorageOperation, omittedProperties>

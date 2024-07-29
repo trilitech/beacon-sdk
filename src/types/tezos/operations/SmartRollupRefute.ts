@@ -1,5 +1,6 @@
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { Optional, omittedProperties } from '../optional'
 
 export interface TezosSmartRollupRefuteOperation extends TezosBaseOperation {
   kind: TezosOperationType.SMART_ROLLUP_REFUTE
@@ -12,6 +13,12 @@ export interface TezosSmartRollupRefuteOperation extends TezosBaseOperation {
   opponent: string
   refutation: SmartRollupRefutation
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosSmartRollupRefuteOperation = Optional<TezosSmartRollupRefuteOperation, omittedProperties>
 
 export type SmartRollupRefutation = SmartRollupRefutationStart | SmartRollupRefutationMove
 

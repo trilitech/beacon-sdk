@@ -1,5 +1,6 @@
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { Optional, omittedProperties } from '../optional'
 
 export interface TezosSmartRollupRecoverBondOperation extends TezosBaseOperation {
   kind: TezosOperationType.SMART_ROLLUP_RECOVER_BOND
@@ -11,3 +12,9 @@ export interface TezosSmartRollupRecoverBondOperation extends TezosBaseOperation
   rollup: string
   staker: string
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosSmartRollupRecoverBondOperation = Optional<TezosSmartRollupRecoverBondOperation, omittedProperties>

@@ -1,5 +1,6 @@
 import { TezosOperationType } from '../TezosOperationType'
 import { TezosBaseOperation } from '../TezosBaseOperation'
+import { omittedProperties, Optional } from '../optional'
 
 export interface TezosSmartRollupCementOperation extends TezosBaseOperation {
   kind: TezosOperationType.SMART_ROLLUP_CEMENT
@@ -10,3 +11,9 @@ export interface TezosSmartRollupCementOperation extends TezosBaseOperation {
   storage_limit: string
   rollup: string
 }
+
+/**
+ * @internalapi
+ * @category Tezos
+ */
+export type PartialTezosSmartRollupCementOperation = Optional<TezosSmartRollupCementOperation, omittedProperties>
