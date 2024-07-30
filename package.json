@@ -1,10 +1,16 @@
 {
-  "name": "@trilitech/tezos-sdk",
-  "description": "The tezos-sdk helps developers to build dApps and wallets for Tezos with a well-defined, standard JSDON RPC interface.",
-  "main": "index.js",
+  "name": "@trilitech/tezos-connect",
+  "description": "The tezos-connect helps developers to build dApps and wallets for Tezos with a well-defined, standard JSDON RPC interface.",
+  "version": "1.0.0",
+  "main": "dist/types/tezos/index.js",
+  "types": "dist/types/tezos/index.d.ts",
+  "files": [
+    "dist",
+    "src/types"
+  ],
   "keywords": [
     "tezos",
-    "tezos-sdk",
+    "tezos-connect",
     "crypto",
     "blockchain",
     "tezos",
@@ -16,20 +22,28 @@
   "homepage": "https://trili.tech",
   "repository": {
     "type": "git",
-    "url": "https://github.com/trilitech/tezos-sdk"
+    "url": "https://github.com/trilitech/tezos-connect"
   },
+  "tsd": {
+		"directory": "test"
+	},
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepare": "echo 'Running prepare script for tezos-connect...' && yarn build",
     "prettier": "prettier --write 'src/*'",
     "lint": "eslint 'src/**/*.ts'",
     "lint:fix": "eslint 'src/**/*.ts' --fix",
     "lint-ci": "eslint 'src/**/*.ts' -f json -o lintReport.json || true",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "type-test": "tsd"
   },
   "author": "Trilitech TriliTech <contact@trili.tech>> (https://trili.tech)",
   "devDependencies": {
     "@types/node": "^20.14.12",
+    "jest": "^29.7.0",
     "ts-node": "^10.9.2",
+    "tsd": "^0.31.1",
     "typescript": "^5.5.4"
   }
 }
